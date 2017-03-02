@@ -20,7 +20,7 @@ pub enum ParseError {
 
 impl fmt::Display for ParseError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-		write!(f, "ParseError: {}", self.description())
+        write!(f, "ParseError: {}", self.description())
     }
 }
 
@@ -29,15 +29,15 @@ impl error::Error for ParseError {
         match *self {
             ParseError::Io(ref err) => err.description(),
             ParseError::Incomplete => "SRT data are missing",
-            ParseError::StartTime=> "Wrong start time format",
-            ParseError::EndTime=> "Wrong end time format",
+            ParseError::StartTime => "Wrong start time format",
+            ParseError::EndTime => "Wrong end time format",
             ParseError::ArrowBetweenTimes => "Expected '-->' between start and end time",
             ParseError::Unknown => "Unknown error",
         }
     }
 
     fn cause(&self) -> Option<&error::Error> {
-		None
+        None
     }
 }
 
@@ -49,12 +49,12 @@ impl From<io::Error> for ParseError {
 
 impl From<ErrorKind> for ParseError {
     fn from(err: ErrorKind) -> ParseError {
-		match err {
-			ErrorKind::Custom(1) => ParseError::StartTime,
-			ErrorKind::Custom(2) => ParseError::ArrowBetweenTimes,
-			ErrorKind::Custom(3) => ParseError::EndTime,
-			_ => ParseError::Unknown,
-		}
+        match err {
+            ErrorKind::Custom(1) => ParseError::StartTime,
+            ErrorKind::Custom(2) => ParseError::ArrowBetweenTimes,
+            ErrorKind::Custom(3) => ParseError::EndTime,
+            _ => ParseError::Unknown,
+        }
     }
 }
 
@@ -143,5 +143,3 @@ mod tests {
         assert_eq!(parse_sub(error_3), Error(ErrorKind::Custom(3)));
     }
 }
-
-
