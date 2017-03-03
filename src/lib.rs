@@ -11,15 +11,15 @@ use parser::parse_srt_from_slice;
 
 #[derive(Debug, PartialEq)]
 pub struct Srt {
-    subs: Vec<SubTitle>,
+    pub subs: Vec<SubTitle>,
 }
 
 #[derive(Debug, PartialEq)]
 pub struct Time {
-    hours: u8,
-    minutes: u8,
-    seconds: u8,
-    milliseconds: u16,
+    pub hours: u8,
+    pub minutes: u8,
+    pub seconds: u8,
+    pub milliseconds: u16,
 }
 
 impl fmt::Display for Time {
@@ -35,10 +35,10 @@ impl fmt::Display for Time {
 
 #[derive(Debug, PartialEq)]
 pub struct SubTitle {
-    index: u32,
-    start_time: Time,
-    end_time: Time,
-    text: String,
+    pub index: u32,
+    pub start_time: Time,
+    pub end_time: Time,
+    pub text: String,
 }
 
 impl fmt::Display for SubTitle {
