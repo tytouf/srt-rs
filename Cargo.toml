@@ -1,7 +1,13 @@
 [package]
 name = "srt"
 version = "0.1.0"
+description = "Parse subtitle files in the SRT format with Rust."
 authors = ["Christophe Augier <christophe.augier@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/tytouf/srt-rs"
+readme = "README.md"
+keywords = ["srt", "subtitle", "parser"]
+categories = ["multimedia:video", "parser-implementations"]
 
 [dependencies]
 nom = "^2.1"
